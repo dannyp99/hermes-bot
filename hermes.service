@@ -1,0 +1,15 @@
+# /usr/lib/systemd/system/hermes-bot.service
+[Unit]
+Description=Hermes Telegram Bot daemon
+After=multi-user.target
+
+[Service]
+WorkingDirectory=/home/pi/Documents/telegram-bot
+Type=idle
+ExecStart=/usr/bin/python3 /home/pi/Documents/telegram-bot/robot.py
+WatchdogSec=604800
+Restart=always
+SyslogIdentifier=hermes-bot
+User=pi
+[Install]
+WantedBy=multi-user.target

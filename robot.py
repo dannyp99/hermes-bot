@@ -5,7 +5,8 @@ from aiogram import Bot, Dispatcher, executor, types
 file = open('.env', 'r')
 
 API_TOKEN = file.readline().rstrip()
-
+zoom_link = file.readline()
+print(zoom_link)
 # - - - - - - - - - - - - - - - -
 # Initialize bot and dispathcer
 bot = Bot(token=API_TOKEN)
@@ -19,12 +20,11 @@ async def start(message: types.Message):
 
 @dp.message_handler(commands=['zoom'])
 async def meet(message: types.Message):
-	await message.answer('https://hofstra.zoom.us/j/94395519966')
+    await message.answer(zoom_link)
 
 async def reminder():
-	print('Reminder reminding')
 	try:
-		await bot.send_message(chat_id=-476860228, text='I have an important message that we are meeting today!\nPlease join here:\nhttps://hofstra.zoom.us/j/94395519966')
+		await bot.send_message(chat_id=-476860228, text='I have an important message that we are meeting today!\nPlease join here:\n' + zoom_link)
 	except Exception:
 		traceback.print_exc()
 

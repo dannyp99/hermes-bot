@@ -24,8 +24,7 @@ async def meet(message: types.Message):
 
 async def reminder():
     try:
-        await bot.send_message(chat_id=-476860228, text='Danny is an idiot programmer.')
-        #await bot.send_message(chat_id=-476860228, text='I have an important message that we are meeting today!\nPlease join here:\n' + zoom_link)
+        await bot.send_message(chat_id=-476860228, text='I have an important message that we are meeting today!\nPlease join here:\n' + zoom_link)
 
     except Exception:
         traceback.print_exc()

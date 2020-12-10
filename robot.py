@@ -25,12 +25,7 @@ async def meet(message: types.Message):
 
 async def reminder():
     try:
-        from datetime import date
-        f_date = date.today()
-        l_date = date(2020, 12, 8)
-        delta = l_date - f_date
-        await bot.send_message(chat_id=-476860228, text='There are no longer meetings but just a reminder, the final paper is due in ' + str(delta.days) + ' days!')
-        #await bot.send_message(chat_id=-476860228, text='I have an important message that we are meeting today!\nPlease join here:\n' + zoom_link)
+        await bot.send_message(chat_id=-476860228, text='I have an important message that we are meeting today!\nPlease join here:\n' + zoom_link)
 
     except Exception:
         traceback.print_exc()
